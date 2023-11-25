@@ -2,7 +2,7 @@ import { useState } from "react";
 import TaskCard from "./TaskCard";
 import BoxCard from "./BoxCard";
 
-const TaskList = (props) => {
+const TaskList = ({title, info}) => {
   const [tasks, setTasks] = useState([
     { id: 5271, name: "Record Lecture", completed: true },
     { id: 5272, name: "Edit React Lectures", completed: false },
@@ -17,7 +17,7 @@ const TaskList = (props) => {
   }
   return (
     <div className="task-container">
-      <h1>Tasks List {props.title}</h1>
+      <h1>Tasks List {title}</h1>
       <button className="trigger" onClick={() => setShow(!show)}>
         Toggle
       </button>
@@ -28,6 +28,7 @@ const TaskList = (props) => {
               key={task.id}
               task={task}
               handleDelete={handleDeleteTask}
+              info={info}
             />
           ))}
       </ul>

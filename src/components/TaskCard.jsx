@@ -1,11 +1,11 @@
 
-const TaskCard = ({task, handleDelete}) => {
+const TaskCard = ({task, handleDelete, info}) => {
     const {id , name , completed} =  task
   return (
     <>
       <li className={completed ? "completed" : "incompleted"}>
         <span>
-          {id}-{name}
+          {id}-{name}-{info}
         </span>
         <span onClick={() => handleDelete(id)}>delete</span>
       </li>

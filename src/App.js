@@ -4,11 +4,12 @@ import "./App.css";
 import TaskList from "./components/TaskList";
 
 const App = () => {
+  const info = "Random"
 
   return (
     <div className="app">
       <Header/>
-    <TaskList title="Random"/>
+    <TaskList info="Random"/>
     </div>
   );
 };
