@@ -1,56 +1,79 @@
-import { useState } from "react";
-import TaskCard from "./TaskCard";
-import BoxCard from "./BoxCard";
+import { BsEye, BsEyeSlash } from 'react-icons/bs';
+import { TaskCard } from './TaskCard';
+import "./TaskList.css";
+import { useState } from 'react';
 
-const TaskList = ({title, info}) => {
-  const [tasks, setTasks] = useState([
-    { id: 5271, name: "Record Lecture", completed: true },
-    { id: 5272, name: "Edit React Lectures", completed: false },
-    { id: 5274, name: "Watch Lecture", completed: false },
-  ]);
-
+export const TaskList = ({ tasks, setTasks }) => {
   const [show, setShow] = useState(true);
 
-  function handleDeleteTask(id) {
-    console.log(id);
-    setTasks(() => tasks.filter((task) => task.id != id));
+  function handleDelete(id) {
+    setTasks(tasks.filter(task => task.id !== id));
   }
+
+  function handleEdit(id, updatedTask) {
+    setTasks(tasks.map(task => (task.id === id ? { ...task, name: updatedTask } : task)));
+  }
+
   return (
-    <div className="task-container">
-      <h1>Tasks List {title}</h1>
-      <button className="trigger" onClick={() => setShow(!show)}>
-        Toggle
-      </button>
-      <ul className="tasklist">
-        {show &&
-          tasks.map((task) => (
-            <TaskCard
-              key={task.id}
-              task={task}
-              handleDelete={handleDeleteTask}
-              info={info}
-            />
-          ))}
+    <section className='tasklist'>
+      <ul>
+        <div className='header'>
+          <h1>TaskList</h1>
+          <div>
+            <button className='trigger' onClick={() => setShow(!show)}>
+              {show ? <BsEyeSlash /> : <BsEye />}
+            </button>
+            <button className='clear' onClick={() => setTasks([])}>
+              Clear All
+            </button>
+          </div>
+        </div>
+        {show && tasks.map(task => (
+          <TaskCard
+            key={task.id}
+            task={task}
+            handleDelete={handleDelete}
+            handleEdit={handleEdit}
+          />
+        ))}
       </ul>
-      <BoxCard result="success">
-        <p className="title">Lorem ipsum dolor, sit amet </p>
-        <p className="description">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit.
-        </p>
-      </BoxCard>
-      <BoxCard result="warning">
-        <p>Lorem, ipsum dolor.</p>
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum,
-          ratione?
-        </p>
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laudantium
-          consectetur similique quaerat molestiae esse nemo?
-        </p>
-      </BoxCard>
-    </div>
+    </section>
   );
 };
 
-export default TaskList;
+
+
+
+// import { useState } from 'react';
+// import { TaskCard } from './TaskCard';
+// import { BsEye ,BsEyeSlash } from 'react-icons/bs';
+
+// import "./TaskList.css";
+// import "./AddTask.css";
+
+
+// export const TaskList = ({tasks , setTasks}) => {
+  
+//     const [show, setShow] = useState(true);
+
+//     function handleDelete(id){
+//         setTasks(tasks.filter(task => task.id !== id));
+//     }
+
+//   return (
+//     <section className='tasklist'>
+//         <ul>
+//             <div className='header'>
+//                 <h1>TaskList</h1>
+//                <div>
+//                <button className='trigger' onClick={() => setShow(!show)}>{ show ? <BsEyeSlash/> : <BsEye/>}</button>
+//                 <button className='clear' onClick={() => setShow(!show)}>Clear All</button>
+//                </div>
+//             </div>
+//             { show && tasks.map((task) => (
+//                 <TaskCard key={task.id} task={task} handleDelete={handleDelete} />
+//             )) }
+//         </ul>
+//     </section>
+//   )
+// }

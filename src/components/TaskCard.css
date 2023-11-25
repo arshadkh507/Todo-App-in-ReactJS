@@ -1,0 +1,48 @@
+.taskcard li{
+    font-size: 20px;
+    list-style: none;
+    margin: 20px 5px;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+    border-radius: 5px;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.taskcard li.completed{
+    box-shadow: rgb(48, 114, 0) 0px 1px 4px;
+}
+  
+.taskcard li.incomplete{
+    box-shadow: rgba(135, 20, 0, 0.689) 0px 1px 4px;
+}
+.taskcard li span{
+    word-break: break-all;
+}
+
+.taskcard button{
+    border: 0px;
+    border-radius: 5px;
+    color: #FFFFFF;
+    padding: 5px 10px;
+    cursor: pointer;
+    margin: 0 5px;
+}
+
+
+.taskcard button.edit {
+    background-color: rgb(90, 75, 188);
+}
+
+.taskcard button.edit:hover {
+    background-color: darkslateblue;
+}
+
+
+.taskcard button.delete {
+    background-color: #cb4141;
+}
+.taskcard button.delete:hover {
+    background-color: #ac2424;
+}

@@ -1,19 +1,26 @@
 import { useState } from "react";
-import Header from "./components/Header";
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import { Header } from "./components/Header";
+import { Footer } from "./components/Footer";
+import { TaskList } from "./components/TaskList";
 import "./App.css";
-import TaskList from "./components/TaskList";
+import AddTask from "./components/AddTask";
 
-const App = () => {
-  const info = "Random"
+function App() {
+  const [tasks, setTasks] = useState([]);
 
   return (
-    <div className="app">
-      <Header/>
-    <TaskList info="Random"/>
+    <div className="App">
+      <Header />
+      <ToastContainer position="top-right" autoClose={3000} hideProgressBar={false} newestOnTop={false} closeOnClick rtl={false} pauseOnFocusLoss draggable pauseOnHover />
+      <main>
+        <AddTask tasks={tasks} setTasks={setTasks} />
+        <TaskList tasks={tasks} setTasks={setTasks} />
+      </main>
+      <Footer />
     </div>
   );
-};
+}
 
 export default App;
-
-//  show={show} tasks={tasks} setShow={setShow} handleDeleteTask={handleDeleteTask}
