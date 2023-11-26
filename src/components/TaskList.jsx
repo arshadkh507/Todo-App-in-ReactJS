@@ -1,27 +1,28 @@
-import { BsEye, BsEyeSlash } from 'react-icons/bs';
-import { TaskCard } from './TaskCard';
-import "./TaskList.css";
 import { useState } from 'react';
+import { FaTrash, FaEdit, FaSquare } from 'react-icons/fa';
+import "./TaskCard.css";
 
-export const TaskList = ({ tasks, setTasks }) => {
+const TaskList = ({ tasks, setTasks }) => {
   const [show, setShow] = useState(true);
 
   function handleDelete(id) {
-    setTasks(tasks.filter(task => task.id !== id));
+    setTasks((prevTasks) => prevTasks.filter(task => task.id !== id));
   }
 
   function handleEdit(id, updatedTask) {
-    setTasks(tasks.map(task => (task.id === id ? { ...task, name: updatedTask } : task)));
+    setTasks((prevTasks) =>
+      prevTasks.map(task => (task.id === id ? { ...task, name: updatedTask } : task))
+    );
   }
 
   return (
     <section className='tasklist'>
       <ul>
         <div className='header'>
-          <h1>TaskList</h1>
+          <h1>Tasklist</h1>
           <div>
             <button className='trigger' onClick={() => setShow(!show)}>
-              {show ? <BsEyeSlash /> : <BsEye />}
+              {show ? <FaSquare /> : <FaSquare />}
             </button>
             <button className='clear' onClick={() => setTasks([])}>
               Clear All
@@ -34,6 +35,7 @@ export const TaskList = ({ tasks, setTasks }) => {
             task={task}
             handleDelete={handleDelete}
             handleEdit={handleEdit}
+            setTasks={setTasks}
           />
         ))}
       </ul>
@@ -41,39 +43,4 @@ export const TaskList = ({ tasks, setTasks }) => {
   );
 };
 
-
-
-
-// import { useState } from 'react';
-// import { TaskCard } from './TaskCard';
-// import { BsEye ,BsEyeSlash } from 'react-icons/bs';
-
-// import "./TaskList.css";
-// import "./AddTask.css";
-
-
-// export const TaskList = ({tasks , setTasks}) => {
-  
-//     const [show, setShow] = useState(true);
-
-//     function handleDelete(id){
-//         setTasks(tasks.filter(task => task.id !== id));
-//     }
-
-//   return (
-//     <section className='tasklist'>
-//         <ul>
-//             <div className='header'>
-//                 <h1>TaskList</h1>
-//                <div>
-//                <button className='trigger' onClick={() => setShow(!show)}>{ show ? <BsEyeSlash/> : <BsEye/>}</button>
-//                 <button className='clear' onClick={() => setShow(!show)}>Clear All</button>
-//                </div>
-//             </div>
-//             { show && tasks.map((task) => (
-//                 <TaskCard key={task.id} task={task} handleDelete={handleDelete} />
-//             )) }
-//         </ul>
-//     </section>
-//   )
-// }
+export default TaskList;
