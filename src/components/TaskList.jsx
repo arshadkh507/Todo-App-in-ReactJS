@@ -1,6 +1,7 @@
 import { useState } from 'react';
-import { FaTrash, FaEdit, FaSquare } from 'react-icons/fa';
-import "./TaskCard.css";
+import { FaTrash, FaEdit , FaEye , FaEyeSlash} from 'react-icons/fa';
+import TaskCard from './TaskCard';
+import "./TaskList.css"
 
 const TaskList = ({ tasks, setTasks }) => {
   const [show, setShow] = useState(true);
@@ -22,22 +23,24 @@ const TaskList = ({ tasks, setTasks }) => {
           <h1>Tasklist</h1>
           <div>
             <button className='trigger' onClick={() => setShow(!show)}>
-              {show ? <FaSquare /> : <FaSquare />}
+              {show ? <FaEye /> : <FaEyeSlash />}
             </button>
             <button className='clear' onClick={() => setTasks([])}>
               Clear All
             </button>
           </div>
         </div>
-        {show && tasks.map(task => (
-          <TaskCard
-            key={task.id}
-            task={task}
-            handleDelete={handleDelete}
-            handleEdit={handleEdit}
-            setTasks={setTasks}
-          />
-        ))}
+        { show && tasks
+          .filter(task => !task.completed)
+          .map(task => (
+            <TaskCard
+              key={task.id}
+              task={task}
+              handleDelete={handleDelete}
+              handleEdit={handleEdit}
+              setTasks={setTasks}
+            />
+          ))}
       </ul>
     </section>
   );

@@ -1,66 +1,48 @@
-import { FaSquare } from 'react-icons/fa';
-import { TaskCard } from "./TaskCard";
+import { FaEye, FaEyeSlash, FaSquare } from "react-icons/fa";
+import TaskCard from "./TaskCard";
 import "./CompletedTasks.css";
+import CompletedTaskCard from "./CompletedTaskCard";
+import { useState } from "react";
 
 const CompletedTasks = ({ completedTasks, setTasks }) => {
+
+  const [show, setShow] = useState(true);
+
   const handleDelete = (id) => {
-    setTasks((prevTasks) => prevTasks.filter(task => task.id !== id));
+    setTasks((prevTasks) => prevTasks.filter((task) => task.id !== id));
   };
 
-  const handleEdit = (id, updatedTask) => {
-    setTasks((prevTasks) =>
-      prevTasks.map(task => (task.id === id ? { ...task, name: updatedTask } : task))
-    );
+
+  const handleClearAll = () => {
+    // Filter out the completed tasks and update the state
+    setTasks((prevTasks) => prevTasks.filter((task) => !task.completed));
   };
 
   return (
-    <div className='completed-tasks'>
-      <h1>Completed Tasks</h1>
-      {completedTasks.map(task => (
-        <TaskCard
+    <div className="completed-tasks">
+      <ul>
+        <div className="header">
+          <h1>Completed Tasks</h1>
+          <div>
+          <button className='trigger' onClick={() => setShow(!show)}>
+              {show ? <FaEye /> : <FaEyeSlash />}
+            </button>
+            <button className="clear" onClick={handleClearAll}>
+              Clear All
+            </button>
+          </div>
+        </div>
+        { show && completedTasks.map(task => (
+        <CompletedTaskCard
           key={task.id}
           task={task}
           handleDelete={handleDelete}
-          handleEdit={handleEdit}
           setTasks={setTasks}
         />
       ))}
+      </ul>
     </div>
   );
 };
 
 export default CompletedTasks;
-
-
-
-/* import { TaskCard } from "./TaskCard";
-
-const CompletedTasks = ({ completedTasks, setTasks }) => {
-  const handleDelete = (id) => {
-    setTasks((prevTasks) => prevTasks.filter(task => task.id !== id));
-  };
-
-  const handleEdit = (id, updatedTask) => {
-    setTasks((prevTasks) =>
-      prevTasks.map(task => (task.id === id ? { ...task, name: updatedTask } : task))
-    );
-  };
-
-  return (
-    <div className='completed-tasks'>
-      <h1>Completed Tasks</h1>
-      {completedTasks.map(task => (
-        <TaskCard
-          key={task.id}
-          task={task}
-          handleDelete={handleDelete}
-          handleEdit={handleEdit}
-          setTasks={setTasks}
-        />
-      ))}
-    </div>
-  );
-};
-
-export default CompletedTasks;
- */

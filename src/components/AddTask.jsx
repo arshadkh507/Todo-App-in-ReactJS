@@ -20,7 +20,7 @@ const AddTask = ({ tasks, setTasks }) => {
     if (!taskvalue.trim()) {
       toast.error("Task name cannot be empty! Please enter a task name.", {
         position: "top-center",
-        autoClose: 3000,
+        autoClose: 2000,
         hideProgressBar: false,
         closeOnClick: true,
         pauseOnHover: true,
@@ -43,7 +43,7 @@ const AddTask = ({ tasks, setTasks }) => {
 
     toast.success("Task added successfully!", {
       position: "top-center",
-      autoClose: 3000,
+      autoClose: 2000,
       hideProgressBar: false,
       closeOnClick: true,
       pauseOnHover: true,
