@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { FaTrash, FaEdit , FaEye , FaEyeSlash} from 'react-icons/fa';
+import {  FaEye , FaEyeSlash} from 'react-icons/fa';
 import TaskCard from './TaskCard';
 import "./TaskList.css"
 

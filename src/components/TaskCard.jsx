@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { FaTrash, FaEdit, FaSquare } from 'react-icons/fa';
+import { FaTrash, FaEdit} from 'react-icons/fa';
 import "./TaskCard.css";
 
 const TaskCard = ({ task, handleDelete, handleEdit, setTasks }) => {

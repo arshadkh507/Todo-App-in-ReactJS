@@ -1,5 +1,4 @@
-import { FaEye, FaEyeSlash, FaSquare } from "react-icons/fa";
-import TaskCard from "./TaskCard";
+import { FaEye, FaEyeSlash } from "react-icons/fa";
 import "./CompletedTasks.css";
 import CompletedTaskCard from "./CompletedTaskCard";
 import { useState } from "react";
