@@ -10,6 +10,7 @@ footer {
 
 .footer-content {
   display: flex;
+  flex-direction: row;
   justify-content: space-between;
   align-items: center;
 }
@@ -27,12 +28,12 @@ footer {
 }
 
 .social-icons a:hover {
-  color: var(--theme-accent);
+  color: darkblue;
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (max-width: 930px) {
   .footer-content {
-    flex-direction: row;
+    flex-direction: column;
     justify-content: space-between;
   }
 
