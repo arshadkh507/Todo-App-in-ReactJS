@@ -45,7 +45,7 @@ To get started with TaskMate, follow these simple steps:
 
 ## Explore TaskMate
 
-Curious to see TaskMate in action? [Check it out here!](#your-project-link)
+Curious to see TaskMate in action? [Check it out here!](https://arshadkh507-todo-app.netlify.app/)
 
 ## Connect with Me
 
