@@ -1,5 +1,5 @@
 // CompletedTaskCard Component
-import { FaSquare, FaTrash } from "react-icons/fa";
+import {  FaTrash } from "react-icons/fa";
 import { useState } from "react";
 import "./CompletedTaskCard.css";
 
