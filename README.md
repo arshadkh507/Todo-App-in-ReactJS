@@ -9,6 +9,14 @@ TaskMate is a feature-rich Todo App designed to streamline your task management 
 - **Local Storage**: Your tasks persist even if you close or reload the app.
 - **Responsive Design**: Enjoy a seamless experience on various screen sizes.
 
+## Screenshots
+
+![TaskMate Screenshot 1](./public/todo-app-img1.jpg)
+*Todo Top*
+
+![TaskMate Screenshot 2](./public/todo-app-img2.jpg)
+*Todo Bottom*
+
 ## Technologies Used
 
 - **React**: A powerful JavaScript library for building the user interface.
