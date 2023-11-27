@@ -58,6 +58,79 @@ Curious to see TaskMate in action? [Check it out here!](#your-project-link)
 
 I welcome your feedback and contributions to enhance TaskMate! Feel free to open an issue or submit a pull request.
 
+
+
+# Todo App
+
+## Project Architecture:
+
+### Components:
+
+- **App:** Main component integrating other components.
+- **Header:** Displays logo and navigation links.
+- **Footer:** Contains social icons and copyright information.
+- **AddTask:** Allows users to add new tasks.
+- **TaskList:** Displays pending tasks.
+- **TaskCard:** Represents an individual task in the pending list.
+- **CompletedTasks:** Displays completed tasks.
+- **CompletedTaskCard:** Represents an individual completed task.
+
+### Styling:
+
+- **CSS Files:** Separate files for each component.
+- **Logo and Icons:** External assets for branding.
+
+### State Management:
+
+- **React State (useState):** Manages task state.
+- **localStorage:** Persists tasks in the browser.
+
+### External Libraries:
+
+- **React Icons:** Adds icons to the UI.
+- **React Toastify:** Displays toast notifications.
+
+## Flowchart:
+
+1. **Initialization:**
+   - App initializes state using useState.
+   - useEffect retrieves tasks from localStorage on mount.
+
+2. **Rendering:**
+   - Header, Footer, and main sections are rendered.
+   - Main sections include AddTask, TaskList, CompletedTasks.
+
+3. **AddTask:**
+   - User inputs task name and selects completion status.
+   - handleSubmit adds task to tasks array using setTasks.
+
+4. **TaskList:**
+   - Displays pending tasks using TaskCard components.
+   - Provides delete or edit options.
+
+5. **CompletedTasks:**
+   - Displays completed tasks using CompletedTaskCard components.
+   - Offers an option to delete all completed tasks.
+
+6. **TaskCard and CompletedTaskCard:**
+   - Render individual task details.
+   - Provide options to delete tasks.
+
+7. **Local Storage:**
+   - useEffect ensures tasks are saved to localStorage on any state change.
+
+8. **Toast Notifications:**
+   - Displayed for successful task addition and errors.
+
+9. **Footer:**
+   - Social icons link to external profiles.
+   - Contains copyright information and developer details.
+
+
+
+
+
+
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
