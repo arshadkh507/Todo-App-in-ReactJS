@@ -126,11 +126,6 @@ I welcome your feedback and contributions to enhance TaskMate! Feel free to open
    - Social icons link to external profiles.
    - Contains copyright information and developer details.
 
-
-
-
-
-
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
